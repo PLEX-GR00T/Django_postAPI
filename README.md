@@ -58,4 +58,9 @@
 | POST                     | /user/register/                          | register          |
 +--------------------------+------------------------------------------+-------------------+
 ```
+- Use this collection file [postAPI_Harness.postman_collection.json](postAPI_Harness.postman_collection.json) in Postman application.
 
+## TODOs
+- Write the Test cases
+- Validate email address at signup
+- Data enrichment using Celery and RabbitMQ. (Right Now the Task is performed with Threading)
