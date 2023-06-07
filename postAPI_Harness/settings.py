@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users', # App for users
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist', # For Logout
+    'posts',
 ]
 
 MIDDLEWARE = [
