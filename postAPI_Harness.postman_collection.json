@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "f4fe948b-a853-4afb-8f0f-30b2f2bcb500",
+		"name": "postAPI_Harness",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27816668"
+	},
+	"item": [
+		{
+			"name": "User Register",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Forwarded-For",
+						"value": "72.110.115.12",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nishil15\",\r\n    \"password\": \"nishil@123\",\r\n    \"email\": \"ayz@email.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nishil\",\r\n    \"password\": \"nishil@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Token Refresh",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NjA5MzQxNSwiaWF0IjoxNjg2MDA3MDE1LCJqdGkiOiI2MWI5MGExMWQ2MWY0YjJmODBjODBiZTA0NGZlN2U0ZSIsInVzZXJfaWQiOjJ9.MZUdiJGbqlSDQzsU5R_3KsDNYpiBksqo4Jm0AxTTeuQ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/login/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"login",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NjA5MzQxNSwiaWF0IjoxNjg2MDA3MDE1LCJqdGkiOiI2MWI5MGExMWQ2MWY0YjJmODBjODBiZTA0NGZlN2U0ZSIsInVzZXJfaWQiOjJ9.MZUdiJGbqlSDQzsU5R_3KsDNYpiBksqo4Jm0AxTTeuQ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/logout/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2MTEwODY5LCJpYXQiOjE2ODYxMDkwNjksImp0aSI6IjRlYWJkNDY1ZWYyODQxNTQ5OTQwYjcyOGU2YWQ3MzAzIiwidXNlcl9pZCI6MTd9.TiUo4nv9sPt87-4eXsdNijka57QSJC9UCXusPC7ep7E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/details/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"details",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2MTA3MTM3LCJpYXQiOjE2ODYxMDUzMzcsImp0aSI6IjIxMDM5MDYwYTgzOTQ2YTlhMTk2ZTdjNWRmMTY4Y2Y5IiwidXNlcl9pZCI6M30.57lsaXNJtPvy9n3nwgqNbNXLuo_XoX7DqgjfE6jioBM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/posts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2MTA3MTM3LCJpYXQiOjE2ODYxMDUzMzcsImp0aSI6IjIxMDM5MDYwYTgzOTQ2YTlhMTk2ZTdjNWRmMTY4Y2Y5IiwidXNlcl9pZCI6M30.57lsaXNJtPvy9n3nwgqNbNXLuo_XoX7DqgjfE6jioBM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Jai mata ji 6th.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/posts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2MTA3MTM3LCJpYXQiOjE2ODYxMDUzMzcsImp0aSI6IjIxMDM5MDYwYTgzOTQ2YTlhMTk2ZTdjNWRmMTY4Y2Y5IiwidXNlcl9pZCI6M30.57lsaXNJtPvy9n3nwgqNbNXLuo_XoX7DqgjfE6jioBM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Jai mata ji Nishil 3.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/posts/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2MTA3MTM3LCJpYXQiOjE2ODYxMDUzMzcsImp0aSI6IjIxMDM5MDYwYTgzOTQ2YTlhMTk2ZTdjNWRmMTY4Y2Y5IiwidXNlcl9pZCI6M30.57lsaXNJtPvy9n3nwgqNbNXLuo_XoX7DqgjfE6jioBM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/posts/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Like-Toggle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2MTA3MTM3LCJpYXQiOjE2ODYxMDUzMzcsImp0aSI6IjIxMDM5MDYwYTgzOTQ2YTlhMTk2ZTdjNWRmMTY4Y2Y5IiwidXNlcl9pZCI6M30.57lsaXNJtPvy9n3nwgqNbNXLuo_XoX7DqgjfE6jioBM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/posts/1/like-toggle/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1",
+						"like-toggle",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
