@@ -9,5 +9,8 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     liked_by = models.ManyToManyField(to=User, related_name='liked_posts', blank=True)
     
+    class Meta:
+        ordering = ['-created_at']
+
 
 
