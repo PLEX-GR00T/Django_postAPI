@@ -8,6 +8,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
 from .tasks import enrich_user_data
+import threading
+
 # from rest_framework_simplejwt.views import TokenBlacklistView
 # from rest_framework.views import APIView
 # from rest_framework_simplejwt.tokens import RefreshToken
@@ -29,7 +31,7 @@ def register(request):
         user = serializer.save()
         user.set_password(serializer.validated_data['password'])
         user.save()
-        enrich_user_data.delay(user.id)
+        threading.Thread(target=enrich_user_data, args=[user.id], daemon=True).start()
         refresh = RefreshToken.for_user(user)
 
         return Response({

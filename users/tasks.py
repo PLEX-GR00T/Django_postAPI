@@ -1,24 +1,22 @@
 import requests
 import json
 from datetime import datetime
-from celery import shared_task
 from django.contrib.auth import get_user_model
 from time import sleep
-from postAPI_Harness.celery import app
 
-@app.task
 def enrich_user_data(user_id):
-    sleep(30)
+    # sleep(30)
     User = get_user_model()
     user = User.objects.get(id = user_id)
 
-    # Geo location (Todo: Handle API exceptions)
+    # Geo location (Todo: Handle API exceptions, move keys to env file,)
     response = json.loads(requests.get(f"https://ipgeolocation.abstractapi.com/v1/?api_key=fcc203c58fa14456839d1646a45107b8&ip_address={user.signup_ip}").content)
     user.signup_location = f"{response['city']};{response['region']};{response['country']}"
     user.save()
 
     # Time Zone
-    timezone = json.loads(requests.get(f'https://timezone.abstractapi.com/v1/current_time/?api_key=2f0631b8bdcf41ff90277c285f120622&location="{user.signup_ip}"').content)
+    timezone = json.loads(requests.get(f'https://timezone.abstractapi.com/v1/current_time/?api_key=c053f763e49a4f59be1810a1f73322de&location="{user.signup_ip}"').content)
+    # print(timezone)
     dt = datetime.fromisoformat(timezone['datetime'])
     
     # Is holiday
