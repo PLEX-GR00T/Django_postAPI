@@ -1,4 +1,4 @@
-# postAPI_Harness (Assessment Task for Founding  Engineer role.)
+# Django RESTful API Backend Project
 
 ## Functional Requirements
 - [x] Once signed up, enrich the User with geolocation data of the IP that the signup originated from 
